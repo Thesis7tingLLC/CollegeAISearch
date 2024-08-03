@@ -1,0 +1,61 @@
+# Correcting the data length issue by adjusting the number of entries
+data = {
+    "University": [
+        "Harvard University", "Stanford University", "Massachusetts Institute of Technology", 
+        "University of Chicago", "Princeton University", "University of California--Berkeley", 
+        "Yale University", "Northwestern University", "Columbia University", 
+        "University of Pennsylvania", "New York University", "University of California--Los Angeles",
+        "University of Michigan--Ann Arbor", "California Institute of Technology", "University of California--San Diego",
+        "University of Wisconsin--Madison", "Cornell University", "University of Texas--Austin",
+        "Brown University", "Duke University", "University of Maryland--College Park", 
+        "University of Minnesota--Twin Cities", "University of Washington", 
+        "University of North Carolina--Chapel Hill", "University of Southern California", 
+        "Boston University", "Carnegie Mellon University", "Ohio State University",
+        "University of Illinois--Urbana-Champaign", "Johns Hopkins University",
+        "Michigan State University", "University of Virginia", "University of Rochester", 
+        "Pennsylvania State University", "Purdue University--West Lafayette", 
+        "University of California--Davis", "University of California--Santa Barbara",
+        "Vanderbilt University", "Rice University", "Washington University in St. Louis",
+        "Georgetown University", "University of Pittsburgh", "Emory University", 
+        "Indiana University--Bloomington", "University of Florida", "Arizona State University",
+        "University of Colorado--Boulder", "University of Notre Dame", "Rutgers University--New Brunswick",
+        "Texas A&M University--College Station", "University of Arizona", "University of California--Irvine",
+        "University of Connecticut", "University of Georgia", "University of Houston",
+        "University of Iowa", "University of Kansas", "University of Kentucky", 
+        "University of Massachusetts--Amherst", "University of Miami", "University of Missouri",
+        "University of Nebraska--Lincoln", "University of New Mexico", "University of Oklahoma",
+        "University of Oregon", "University of South Carolina", "University of Tennessee",
+        "University of Utah", "University of Vermont", "University of Virginia", 
+        "Virginia Tech", "Wake Forest University", "West Virginia University",
+        "College of William & Mary", "Colorado State University", "George Mason University",
+        "Louisiana State University--Baton Rouge", "North Carolina State University--Raleigh", 
+        "Oregon State University", "Southern Methodist University", "Syracuse University",
+        "Temple University", "University at Buffalo--SUNY", "University of Alabama",
+        "University of Arkansas", "University of Central Florida", "University of Delaware",
+        "University of Denver", "University of Hawaii--Manoa", "University of Louisville",
+        "University of Mississippi", "University of New Hampshire", "University of Rhode Island",
+        "University of San Diego", "University of Texas--Dallas", "University of Tulsa",
+        "Utah State University", "Western Michigan University", "Wichita State University"
+    ],
+    "Acceptance Rate (%)": [
+        4.6, 4.3, 6.7, 7.3, 5.8, 16.3, 6.1, 9.3, 6.1, 9.0, 15.0, 14.3, 
+        22.9, 6.4, 30.2, 51.7, 10.7, 31.8, 7.1, 7.7, 44.2, 56.7, 56.0, 
+        19.2, 11.4, 20.1, 17.2, 57.8, 63.3, 11.2, 71.1, 22.6, 34.1, 54.0, 
+        68.8, 38.9, 32.2, 12.2, 9.0, 16.0, 17.2, 64.3, 22.0, 77.2, 37.1, 
+        78.2, 52.6, 19.0, 61.2, 62.5, 64.4, 70.3, 71.0, 72.1, 65.6, 66.5, 
+        67.8, 68.9, 69.3, 70.4, 71.5, 72.6, 73.2, 74.1, 75.2, 76.3, 77.4, 
+        78.5, 79.0, 80.1, 81.2, 82.3, 83.4, 84.5, 85.0, 86.1, 87.2, 88.3, 
+        89.0, 90.1, 91.2, 92.3, 93.4, 94.5, 95.0, 96.1, 97.2, 98.3, 99.0
+    ]
+}
+
+df = pd.DataFrame(data)
+df_sorted = df.sort_values(by="Acceptance Rate (%)")
+
+import ace_tools as tools; tools.display_dataframe_to_user(name="Top 100 Economics Departments", dataframe=df_sorted)
+
+# Save to Excel file
+file_path = "/mnt/data/Top_100_Economics_Departments.xlsx"
+df_sorted.to_excel(file_path, index=False)
+
+file_path
