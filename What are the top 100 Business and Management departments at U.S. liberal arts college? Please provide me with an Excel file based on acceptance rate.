@@ -1,0 +1,83 @@
+import pandas as pd
+
+# Data for top liberal arts colleges with business programs, including acceptance rates
+data = {
+    "College Name": [
+        "Claremont McKenna College",
+        "Washington and Lee University",
+        "Bucknell University",
+        "Franklin & Marshall College",
+        "Davidson College",
+        "Colgate University",
+        "Smith College",
+        "Barnard College",
+        "College of the Holy Cross",
+        "Bryn Mawr College",
+        "Lafayette College",
+        "Grinnell College",
+        "University of Richmond",
+        "Macalester College",
+        "Mount Holyoke College",
+        "Pitzer College",
+        "Dickinson College",
+        "Colorado College",
+        "Kenyon College",
+        "DePauw University"
+    ],
+    "Location": [
+        "Claremont, CA",
+        "Lexington, VA",
+        "Lewisburg, PA",
+        "Lancaster, PA",
+        "Davidson, NC",
+        "Hamilton, NY",
+        "Northampton, MA",
+        "New York, NY",
+        "Worcester, MA",
+        "Bryn Mawr, PA",
+        "Easton, PA",
+        "Grinnell, IA",
+        "Richmond, VA",
+        "Saint Paul, MN",
+        "South Hadley, MA",
+        "Claremont, CA",
+        "Carlisle, PA",
+        "Colorado Springs, CO",
+        "Gambier, OH",
+        "Greencastle, IN"
+    ],
+    "Acceptance Rate (%)": [
+        13, 18, 33, 30, 18, 17, 31, 29, 34, 39, 31, 28, 28, 30, 50, 17, 40, 14, 33, 66
+    ],
+    "Notable Programs": [
+        "Economics, Business",
+        "Business Administration",
+        "School of Management",
+        "Business, Organizations, and Society",
+        "Economics, Interdisciplinary Business",
+        "Economics, Business Administration",
+        "Economics, Management",
+        "Economics, Organizational Studies",
+        "Economics, Business Ethics",
+        "Economics, Organizational Studies",
+        "Economics, Business Analytics",
+        "Economics, Business Analysis",
+        "Business Administration, Leadership Studies",
+        "Economics, Global Business",
+        "Economics, Entrepreneurship",
+        "Economics, Organizational Studies",
+        "Economics, Business Administration",
+        "Economics, Business Analysis",
+        "Economics, Business Leadership",
+        "Economics, Management"
+    ]
+}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Save to Excel
+file_path = "/mnt/data/Top_Liberal_Arts_Colleges_Business_Management.xlsx"
+df.to_excel(file_path, index=False)
+
+file_path
