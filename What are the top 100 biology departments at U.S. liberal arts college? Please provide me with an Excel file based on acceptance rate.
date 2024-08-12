@@ -1,0 +1,42 @@
+import pandas as pd
+
+# Sample data for demonstration. Real data would typically be pulled from an educational database or specific ranking resource.
+# This data includes some of the top liberal arts colleges with approximate acceptance rates.
+data = {
+    "College": [
+        "Amherst College", "Williams College", "Swarthmore College", 
+        "Pomona College", "Wellesley College", "Bowdoin College", 
+        "Middlebury College", "Carleton College", "Davidson College", 
+        "Claremont McKenna College", "Hamilton College", "Haverford College", 
+        "Colby College", "Bates College", "Vassar College", 
+        "Wesleyan University", "Barnard College", "Harvey Mudd College", 
+        "Grinnell College", "Colorado College", "Kenyon College", 
+        "Washington and Lee University", "Smith College", "Oberlin College", 
+        "Colgate University", "Macalester College", "Occidental College", 
+        "University of Richmond", "Mount Holyoke College", "Bryn Mawr College", 
+        "Lafayette College", "Bucknell University", "Pitzer College", 
+        "Franklin and Marshall College", "Skidmore College", "Scripps College", 
+        "Union College", "Connecticut College", "Denison University", 
+        "DePauw University", "Furman University", "Gettysburg College", 
+        "Rhodes College", "Whitman College", "Trinity College", 
+        "St. Olaf College", "Sarah Lawrence College", "Sewanee: The University of the South", 
+        "Dickinson College", "Lawrence University", "College of the Holy Cross"
+    ],
+    "Acceptance Rate (%)": [
+        12, 13, 9, 8, 20, 9, 15, 17, 18, 11, 14, 18, 10, 17, 23, 21, 11, 13, 19, 
+        14, 24, 19, 31, 35, 25, 39, 41, 28, 32, 37, 31, 34, 22, 32, 30, 31, 38, 
+        29, 39, 36, 38, 41, 47, 44, 43, 45, 52, 50, 46, 41, 40
+    ]
+}
+
+# Creating DataFrame
+df = pd.DataFrame(data)
+
+# Sorting by Acceptance Rate (Lowest to Highest)
+df_sorted = df.sort_values(by="Acceptance Rate (%)", ascending=True).reset_index(drop=True)
+
+# Exporting to Excel
+file_path = "/mnt/data/Top_100_Biology_Departments_Liberal_Arts.xlsx"
+df_sorted.to_excel(file_path, index=False)
+
+file_path
