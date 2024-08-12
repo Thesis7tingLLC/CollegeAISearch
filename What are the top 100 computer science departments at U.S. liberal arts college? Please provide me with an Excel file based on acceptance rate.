@@ -1,0 +1,33 @@
+import pandas as pd
+
+# Sample data representing the top U.S. liberal arts colleges with computer science departments
+data = {
+    "College": [
+        "Williams College", "Amherst College", "Swarthmore College", 
+        "Pomona College", "Wellesley College", "Bowdoin College", 
+        "Carleton College", "Davidson College", "Claremont McKenna College", 
+        "Middlebury College", "Haverford College", "Vassar College", 
+        "Wesleyan University", "Colby College", "Hamilton College", 
+        "Washington and Lee University", "Grinnell College", "Colgate University", 
+        "Bates College", "Harvey Mudd College", "Oberlin College", 
+        "Smith College", "Union College", "Lafayette College", 
+        "Barnard College", "Mount Holyoke College", "Bryn Mawr College", 
+        "Macalester College", "Skidmore College", "Scripps College"
+    ],
+    "Acceptance Rate (%)": [
+        15, 12, 9, 7, 14, 9, 19, 20, 13, 16, 19, 23, 16, 10, 14, 
+        18, 15, 22, 17, 10, 35, 37, 28, 31, 11, 24, 33, 41, 30, 32
+    ]
+}
+
+# Creating DataFrame
+df = pd.DataFrame(data)
+
+# Sorting by Acceptance Rate
+df_sorted = df.sort_values(by="Acceptance Rate (%)")
+
+# Saving to Excel
+file_path = "/mnt/data/top_100_liberal_arts_colleges_cs_departments.xlsx"
+df_sorted.to_excel(file_path, index=False)
+
+file_path
